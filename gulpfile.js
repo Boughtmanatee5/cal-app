@@ -83,6 +83,7 @@ gulp.task('copy', function() {
 gulp.task('libs', function() {
   return gulp.src(paths.libs)
     .pipe(concat('libs.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('build'));
 });
 

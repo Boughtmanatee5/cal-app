@@ -8,7 +8,7 @@ function setup($stateProvider) {
     });
   };
 
-config.$inject = ['$stateProvider']
+setup.$inject = ['$stateProvider']
 
 var app = angular.module('calApp',['ngAnimate','ui.router','hmTouchEvents'])
   .config(setup)
