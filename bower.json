@@ -1,0 +1,27 @@
+{
+  "name": "cal-app",
+  "version": "0.0.1",
+  "authors": [
+    "Sean Costello <seancostellodp@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3",
+    "angular-animate": "~1.3",
+    "angular-material": "*",
+    "hammerjs": "*",
+    "ryanmullins-angular-hammer": "*",
+    "angular-ui-router": "*",
+    "lodash": "*"
+  },
+  "resolutions": {
+    "angular": "~1.3"
+  }
+}
