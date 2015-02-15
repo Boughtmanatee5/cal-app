@@ -72,10 +72,10 @@ gulp.task('copy', function() {
   gulp.src('app/index.html').pipe(gulp.dest('build'))
 });
 
-gulp.task('deps'), function () {
+gulp.task('libs', function() {
   return gulp.src(paths.libs)
-    .pipe(concat('deps.js'))
+    .pipe(concat('libs.js'))
     .pipe(gulp.dest('build'));
-};
+});
 
 gulp.task('build', ['copy', 'libs', 'js', 'sass']);
