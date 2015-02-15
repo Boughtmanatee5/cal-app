@@ -1,7 +1,9 @@
+var moduleName = 'calApp'
+
 function config($stateProvider) {
   $stateProvider
-    .state('base',{
-      url: '/',
+    .state('base', {
+      url: '',
       controller: function () {
         console.log('base state');
       }
@@ -10,8 +12,6 @@ function config($stateProvider) {
 
 config.$inject = ['$stateProvider']
 
-var moduleName = 'calApp'
-
 var app = angular.module(moduleName,
   [
   'ngAnimate',
@@ -19,5 +19,3 @@ var app = angular.module(moduleName,
   'hmTouchEvents'
   ]
   ).config(config);
-
-export default moduleName
