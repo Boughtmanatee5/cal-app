@@ -28,7 +28,11 @@
     "node-notifier": "*",
     "gulp-ruby-sass": "*",
     "gulp-sourcemaps": "*",
-    "gulp-6to5": "*"
+    "gulp-babel": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*"
   },
   "license": "MIT"
 }

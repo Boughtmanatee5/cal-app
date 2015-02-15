@@ -5,14 +5,18 @@ var plumber     = require('gulp-plumber');
 var watch       = require('gulp-watch')
 var utils       = require('gulp-util');
 var concat      = require('gulp-concat');
+var buffer      = require('vinyl-buffer');
+var source      = require('vinyl-source-stream');
 
 //css
 var sass        = require('gulp-ruby-sass');
 var prefix      = require('gulp-autoprefixer');
 
 //javascript
+var browserify  = require('browserify');
 var uglify      = require('gulp-uglify');
-var to5         = require('gulp-6to5');
+var babel       = require('gulp-babel');
+var babelify    = require('babelify');
 var sourcemaps  = require('gulp-sourcemaps');
 
 paths = {
@@ -46,14 +50,18 @@ function generateSass () {
 
 gulp.task('sass', generateSass);
 
-gulp.task('js', function(){
-  return gulp.src('app/*.js')
-    .pipe(plumber({errorHandler: utils.reportError}))
-    .pipe(sourcemaps.init())
-    .pipe(to5())
-    .pipe(concat('app.js'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('build'));
+gulp.task('js', function() {
+  browserify('app/index.js', { debug: true })
+  .add(require.resolve('babelify/polyfill'))
+  .transform(babelify)
+  .bundle()
+  .on('error', utils.log.bind(utils, 'Browserify Error'))
+  .pipe(source('app.js'))
+  .pipe(buffer())
+  .pipe(sourcemaps.init({loadMaps: true}))
+  .pipe(uglify({ mangle: false }))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest('build'));
 });
 
 gulp.task('watch', function () {
