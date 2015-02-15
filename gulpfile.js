@@ -15,12 +15,18 @@ var uglify      = require('gulp-uglify');
 var to5         = require('gulp-6to5');
 var sourcemaps  = require('gulp-sourcemaps');
 
-// paths = {
-//   sass: './app/*.sass',
-//   js: 'app/index.js',
-//   libs: [],
-//   build: 'build'
-// }
+paths = {
+  libs: [
+    'bower_components/angular/angular.js',
+    'bower_components/angular-animate/angular-animate.js',
+    'bower_components/angular-material/angular-material.js',
+    'bower_components/angular-ui-router/release/angular-ui-router.js',
+    'bower_components/hammerjs/hammer.js',
+    'bower_components/hammerjs/hammer.js',
+    'bower_components/ryanmullins-angular-hammer/angular.hammer.js'
+  ]
+};
+
 // targets = {
 //   css: 'build/css',
 //   js: 'build'
@@ -66,4 +72,10 @@ gulp.task('copy', function() {
   gulp.src('app/index.html').pipe(gulp.dest('build'))
 });
 
-gulp.task('build', ['copy', 'js', 'sass']);
+gulp.task('deps'), function () {
+  return gulp.src(paths.libs)
+    .pipe(concat('deps.js'))
+    .pipe(gulp.dest('build'));
+};
+
+gulp.task('build', ['copy', 'libs', 'js', 'sass']);
