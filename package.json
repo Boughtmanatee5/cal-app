@@ -32,7 +32,9 @@
     "babelify": "*",
     "browserify": "*",
     "vinyl-buffer": "*",
-    "vinyl-source-stream": "*"
+    "vinyl-source-stream": "*",
+    "gulp-angular-templatecache": "*",
+    "gulp-angular-htmlify": "*"
   },
   "license": "MIT"
 }
