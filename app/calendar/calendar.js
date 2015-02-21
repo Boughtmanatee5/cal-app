@@ -1,9 +1,9 @@
-class calendarController {
+class CalendarController {
   constructor($scope) {
     console.log('calendar controller');
   };
 };
 
-calendarController.$inject = ['$scope']
+CalendarController.$inject = ['$scope']
 
-export default calendarController
+export default CalendarController

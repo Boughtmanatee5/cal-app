@@ -18,6 +18,7 @@ var uglify      = require('gulp-uglify');
 var babel       = require('gulp-babel');
 var babelify    = require('babelify');
 var sourcemaps  = require('gulp-sourcemaps');
+var annotate    = require('gulp-ng-annotate');
 
 //html
 var templatecache = require('gulp-angular-templatecache')
@@ -61,6 +62,7 @@ gulp.task('js', function() {
   .bundle()
   .on('error', utils.log.bind(utils, 'Browserify Error'))
   .pipe(source('app.js'))
+  .pipe(annotate())
   .pipe(buffer())
   .pipe(sourcemaps.init({loadMaps: true}))
   .pipe(uglify({ mangle: false }))

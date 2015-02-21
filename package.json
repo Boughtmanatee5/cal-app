@@ -34,7 +34,8 @@
     "vinyl-buffer": "*",
     "vinyl-source-stream": "*",
     "gulp-angular-templatecache": "*",
-    "gulp-angular-htmlify": "*"
+    "gulp-angular-htmlify": "*",
+    "gulp-ng-annotate": "*"
   },
   "license": "MIT"
 }
