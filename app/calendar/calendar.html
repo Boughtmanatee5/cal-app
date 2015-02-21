@@ -1,5 +1,4 @@
 <div>
-  <h1> Hello </h1>
-  <div date-block></div>
-  <date-block></date-block>
+  <h1> {{date | date}} </h1>
+  <date-block index="{{$index + 1}}" ng-repeat="days in totalDays track by $index"></date-block>
 </div>
