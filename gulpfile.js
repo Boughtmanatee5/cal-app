@@ -31,8 +31,8 @@ paths = {
     'bower_components/angular-material/angular-material.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
     'bower_components/hammerjs/hammer.js',
-    'bower_components/hammerjs/hammer.js',
-    'bower_components/ryanmullins-angular-hammer/angular.hammer.js'
+    'bower_components/ryanmullins-angular-hammer/angular.hammer.js',
+    'bower_components/ngGAPI/gapi.js'
   ]
 };
 
@@ -101,7 +101,9 @@ gulp.task('copy', function() {
 gulp.task('libs', function() {
   return gulp.src(paths.libs)
     .pipe(concat('libs.js'))
+    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('build'));
 });
 
