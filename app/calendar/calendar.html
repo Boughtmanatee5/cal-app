@@ -1,4 +1,4 @@
-<div>
-  <h1> {{date | date}} </h1>
-  <date-block index="{{$index + 1}}" ng-repeat="days in totalDays track by $index"></date-block>
+<div class="calendar">
+  <h1> {{today | date}} </h1>
+  <date-block ng-repeat="days in totalDays track by $index"></date-block>
 </div>
