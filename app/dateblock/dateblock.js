@@ -1,7 +1,9 @@
+
 class DateBlock {
+  /*@ngInject*/
   constructor () {
     console.log('dateblock constructor');
-    this.template = "/app/dateblock/dateblock.html";
+    this.templateUrl = "/app/dateblock/dateblock.html";
     this.restrict = 'AE';
     this.scope = {};
   }

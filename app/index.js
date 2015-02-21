@@ -1,7 +1,10 @@
 import register from './utils/register.js'
 import CalendarController from './calendar/calendar.js'
-import dateBlock from './dateblock/dateblock.js'
+import DateBlock from './dateblock/dateblock.js'
 
+var app = angular.module('calApp',['ngAnimate','ui.router','hmTouchEvents', 'templates'])
+
+/*@ngInject*/
 function setup($stateProvider) {
   $stateProvider
     .state('base', {
@@ -11,13 +14,6 @@ function setup($stateProvider) {
     });
   };
 
-setup.$inject = ['$stateProvider']
+app.config(setup)
 
-// console.log('DateBlock', new DateBlock())
-
-var app = angular.module('calApp',['ngAnimate','ui.router','hmTouchEvents', 'templates'])
-  .config(setup)
-  // .controller('calendarController', calendarController)
-  // .directive('dateBlock', DateBlock);
-
-register('calApp').directive('dateBlock', dateBlock)
+register('calApp').directive('dateBlock', DateBlock)
