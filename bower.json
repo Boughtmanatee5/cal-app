@@ -19,7 +19,8 @@
     "hammerjs": "*",
     "ryanmullins-angular-hammer": "*",
     "angular-ui-router": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "ngGAPI": "https://github.com/christiansmith/ngGAPI.git"
   },
   "resolutions": {
     "angular": "~1.3"
